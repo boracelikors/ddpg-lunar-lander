@@ -2,6 +2,9 @@ from ddpg_torch import Agent
 import gymnasium as gym
 import numpy as np
 from utils import plotLearning
+import os
+
+os.makedirs('tmp/ddpg', exist_ok=True)
 
 env = gym.make('LunarLander-v3', continuous=True)
 agent = Agent(alpha=0.000025, beta=0.00025, input_dims=[8], tau=0.001, env=env,
@@ -26,8 +29,8 @@ for i in range(int(__import__("sys").argv[1]) if len(__import__("sys").argv)>1 e
         #env.render()
     score_history.append(score)
 
-    #if i % 25 == 0:
-    #    agent.save_models()
+    if i % 25 == 0:
+        agent.save_models()
 
     print('episode ', i, 'score %.2f' % score,
           'trailing 100 games avg %.3f' % np.mean(score_history[-100:]), flush=True)
