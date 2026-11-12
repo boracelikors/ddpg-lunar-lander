@@ -42,7 +42,7 @@ To log while training: `python3 -u main_torch.py > train.log`.
 
 See `git log` for the full history. So far:
 
-1. **Compatibility only** (`a217732`): `gym` → `gymnasium`, `LunarLander-v3`, new `reset`/`step` API,
+1. **Compatibility only** (`c2b64ec`): `gym` → `gymnasium`, `LunarLander-v3`, new `reset`/`step` API,
    CPU fallback instead of `cuda:1`. No algorithm changes.
 2. `live_monitor.py`: a live training-curve viewer (my addition).
 
