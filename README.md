@@ -44,13 +44,15 @@ See `git log` for the full history. So far:
 
 1. **Compatibility only** (`c2b64ec`): `gym` → `gymnasium`, `LunarLander-v3`, new `reset`/`step` API,
    CPU fallback instead of `cuda:1`. No algorithm changes.
-2. `live_monitor.py`: a live training-curve viewer (my addition).
+2. `live_monitor.py` / `watch_live.py`: live training curve and simulation viewers (my additions).
+3. `resume_torch.py`: continue training from the last checkpoint (my addition; replay buffer is not restored).
 
 ## Progress log
 
 | Date | Run | Result |
 |---|---|---|
 | 2026-11-12 | Original hyperparameters, CPU, run 1 | **Solved.** 100-ep avg first ≥ 200 at episode 732; peak avg 212.7 (ep 986); best episode 298.8. Stopped at ep 988 (session ended). [`results_run1.png`](results_run1.png), [`results_run1.log`](results_run1.log) |
+| 2026-11-12 | Run 1 resumed from ep-975 checkpoint (`resume_torch.py`), eps 976–999 | Completed 1000 episodes; final 100-ep avg **181.7**. Resumed episodes averaged 89.8 (10/24 > 200) vs ~200 before: the original code doesn't save the replay buffer, so learning restarted from an empty buffer. [`results_full.png`](results_full.png), [`results_full.log`](results_full.log) |
 
 Reference result from the original author (`Torch-LunarLander-alpha000025-beta00025-400-300.png`):
 the 100-episode average reaches ~200 (solved) around episode 650.
