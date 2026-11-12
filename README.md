@@ -50,7 +50,9 @@ See `git log` for the full history. So far:
 
 | Date | Run | Result |
 |---|---|---|
-| 2026-11-12 | Original hyperparameters, 1000 episodes, CPU | *in progress* |
+| 2026-11-12 | Original hyperparameters, CPU, run 1 | **Solved.** 100-ep avg first ≥ 200 at episode 732; peak avg 212.7 (ep 986); best episode 298.8. Stopped at ep 988 (session ended). [`results_run1.png`](results_run1.png), [`results_run1.log`](results_run1.log) |
 
 Reference result from the original author (`Torch-LunarLander-alpha000025-beta00025-400-300.png`):
 the 100-episode average reaches ~200 (solved) around episode 650.
+
+![Run 1 learning curve](results_run1.png)
