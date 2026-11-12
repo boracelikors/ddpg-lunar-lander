@@ -1,0 +1,4 @@
+# model checkpoints & run outputs (large / regenerated every run)
+tmp/
+*.out
+__pycache__/
