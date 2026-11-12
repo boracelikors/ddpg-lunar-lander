@@ -46,6 +46,7 @@ See `git log` for the full history. So far:
    CPU fallback instead of `cuda:1`. No algorithm changes.
 2. `live_monitor.py` / `watch_live.py`: live training curve and simulation viewers (my additions).
 3. `resume_torch.py`: continue training from the last checkpoint (my addition; replay buffer is not restored).
+4. `record_episode.py`: noise-free evaluation over N seeds and MP4 recording (my addition).
 
 ## Progress log
 
@@ -57,4 +58,8 @@ See `git log` for the full history. So far:
 Reference result from the original author (`Torch-LunarLander-alpha000025-beta00025-400-300.png`):
 the 100-episode average reaches ~200 (solved) around episode 650.
 
-![Run 1 learning curve](results_run1.png)
+![Final learning curve](results_full.png)
+
+**Noise-free evaluation of the final model** (10 seeds): mean **242.7**, 9/10 episodes > 200.
+The 975-checkpoint scores 235.0 (8/10), so the lower training average after resuming came from exploration noise, not a worse policy.
+Video: [`episode_final_seed0.mp4`](episode_final_seed0.mp4) (seed 0, score 237.8).
